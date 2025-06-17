@@ -77,7 +77,7 @@ export function HeroSection() {
         >
           <div className="retro-box shadow-retro-xl">
             <img
-              src="https://images.pexels.com/photos/7989741/pexels-photo-7989741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="https://res.cloudinary.com/dunqr1cgq/image/upload/v1750143718/23_xukn1e.jpg"
               alt="Ridha Fahmi - Professional profile"
               className="w-full h-auto object-cover"
             />

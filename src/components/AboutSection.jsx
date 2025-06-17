@@ -71,7 +71,7 @@ export function AboutSection() {
           >
             <div className="retro-box shadow-retro-xl">
               <img
-                src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://res.cloudinary.com/dunqr1cgq/image/upload/v1750143840/17_ahthfi.jpg"
                 alt="Working on a project"
                 className="w-full h-auto"
               />
