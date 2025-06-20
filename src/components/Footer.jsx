@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Linkedin, Mail, MapPin } from "lucide-react";
+import { GithubIcon } from "./icons/GithubIcon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,14 +24,14 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/ahdirmai"
                 className="retro-box w-10 h-10 flex items-center justify-center bg-retro-white-50 hover:bg-retro-gray-300 hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
                 aria-label="GitHub"
               >
-                <Github size={20} className="text-retro-black-900" />
+                <GithubIcon size={20} className="text-retro-black-900" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/ridha-fahmi-junaidi/"
                 className="retro-box w-10 h-10 flex items-center justify-center bg-retro-white-50 hover:bg-retro-gray-300 hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
                 aria-label="LinkedIn"
               >
