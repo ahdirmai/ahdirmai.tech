@@ -76,7 +76,7 @@ export function ContactSection() {
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="retro-box w-12 h-12 flex items-center justify-center mr-4 bg-retro-gray-200 flex-shrink-0">
+                  <div className="retro-box h-12 flex items-center justify-center mr-4 bg-retro-gray-200 flex-shrink-0">
                     <Mail className="w-5 h-5 text-retro-black-900" />
                   </div>
                   <div>
@@ -93,7 +93,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="retro-box w-12 h-12 flex items-center justify-center mr-4 bg-retro-gray-200 flex-shrink-0">
+                  <div className="retro-box h-12 flex items-center justify-center mr-4 bg-retro-gray-200 flex-shrink-0">
                     <Phone className="w-5 h-5 text-retro-black-900" />
                   </div>
                   <div>
@@ -107,7 +107,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="retro-box w-12 h-12 flex items-center justify-center mr-4 bg-retro-gray-200 flex-shrink-0">
+                  <div className="retro-box h-12 flex items-center justify-center mr-4 bg-retro-gray-200 flex-shrink-0">
                     <MapPin className="w-5 h-5 text-retro-black-900" />
                   </div>
                   <div>
