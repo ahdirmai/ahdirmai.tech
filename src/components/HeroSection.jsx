@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown, Download,Github } from "lucide-react";
 
 export function HeroSection() {
   const handleDownloadCV = () => {
@@ -58,14 +58,12 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-         
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
             <button 
               onClick={handleDownloadCV}
               className="btn btn-primary group"
             >
-              <Download size={18} className="mr-2 group-hover:animate-bounce" />
-              Download CV
+              <Github size={18} className="mr-2 group-hover:animate-bounce" />
             </button>
             <a href="#contact" className="btn btn-secondary">
               Contact Me
