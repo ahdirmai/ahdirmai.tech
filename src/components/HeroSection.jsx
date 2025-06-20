@@ -57,10 +57,10 @@ export function HeroSection() {
               href="https://github.com/ahdirmai"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
+              className="retro-box w-12 h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
               aria-label="GitHub"
             >
-              <Github size={24} className="text-retro-black-900" />
+              <Github size={24} className="" />
             </a>
             <a
               href="https://www.linkedin.com/in/ridha-fahmi-junaidi/"
