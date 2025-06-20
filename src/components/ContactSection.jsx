@@ -101,7 +101,7 @@ export function ContactSection() {
                       Phone
                     </h4>
                     <p className="text-retro-black-900 font-medium">
-                      Available upon request
+                      +62 895 3882 20777
                     </p>
                   </div>
                 </div>
