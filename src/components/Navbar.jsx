@@ -39,7 +39,7 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
-          <div className="retro-box w-10 h-10 flex items-center justify-center">
+          <div className="retro-box h-10 flex items-center justify-center">
             <img src="/logo.svg" alt="Logo" className="w-6 h-6" />
           </div>
           <span className="font-roboto font-black text-xl text-retro-black-900">Ridha Fahmi</span>
