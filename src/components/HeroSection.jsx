@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Download,Github } from "lucide-react";
+import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react";
 
 export function HeroSection() {
   const handleDownloadCV = () => {
@@ -51,28 +51,36 @@ export function HeroSection() {
               View Projects
             </a>
           </div>
-        </motion.div>
-      <motion.div
-          className="flex-1 text-center lg:text-left"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
-            <button 
-              onClick={handleDownloadCV}
-              className="btn btn-primary group"
+            <a
+              href="https://github.com/ahdirmai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="retro-box w-12 h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
+              aria-label="GitHub"
             >
-              <Github size={18} className="group-hover:animate-bounce" />
-            </button>
-            <a href="#contact" className="btn btn-secondary">
-              Contact Me
+              <Github size={24} className="text-retro-black-900" />
             </a>
-            <a href="#projects" className="btn btn-outline">
-              View Projects
+            <a
+              href="https://www.linkedin.com/in/ridha-fahmi-junaidi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="retro-box w-12 h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} className="text-retro-black-900" />
+            </a>
+            <a
+              href="mailto:ridhofahmij225@gmail.com"
+              className="retro-box w-12 h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
+              aria-label="Email"
+            >
+              <Mail size={20} className="text-retro-black-900" />
             </a>
           </div>
         </motion.div>
+
         <motion.div
           className="flex-1"
           initial={{ opacity: 0, x: 20 }}
