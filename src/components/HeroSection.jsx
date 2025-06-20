@@ -63,7 +63,7 @@ export function HeroSection() {
               onClick={handleDownloadCV}
               className="btn btn-primary group"
             >
-              <Github size={18} className="mr-2 group-hover:animate-bounce" />
+              <Github size={18} className="group-hover:animate-bounce" />
             </button>
             <a href="#contact" className="btn btn-secondary">
               Contact Me
