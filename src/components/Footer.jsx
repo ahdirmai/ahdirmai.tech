@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Linkedin, Mail, MapPin,Github } from "lucide-react";
 import { GithubIcon } from "./icons/GithubIcon";
 
 export function Footer() {
