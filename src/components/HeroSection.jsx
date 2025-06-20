@@ -73,7 +73,7 @@ export function HeroSection() {
             </a>
             <a
               href="mailto:ridhofahmij225@gmail.com"
-              className="retro-box w-12 h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
+              className="retro-box h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
               aria-label="Email"
             >
               <Mail size={20} className="text-retro-black-900" />
