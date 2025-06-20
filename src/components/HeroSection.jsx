@@ -52,7 +52,40 @@ export function HeroSection() {
             </a>
           </div>
         </motion.div>
+<motion.div
+          className="flex-1 text-center lg:text-left"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="mb-8">
+            <span className="retro-badge mb-4">Full Stack Developer</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-retro-black-900 leading-tight mb-6">
+              Hi, I'm <span className="text-retro-gray-700">Ridha Fahmi</span>
+            </h1>
+            <p className="text-lg md:text-xl text-retro-gray-700 max-w-2xl lg:mx-0 mx-auto mb-8">
+              Crafting modern web applications with clean code and exceptional
+              user experiences. Passionate about solving complex problems with
+              elegant solutions.
+            </p>
+          </div>
 
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+            <button 
+              onClick={handleDownloadCV}
+              className="btn btn-primary group"
+            >
+              <Download size={18} className="mr-2 group-hover:animate-bounce" />
+              Download CV
+            </button>
+            <a href="#contact" className="btn btn-secondary">
+              Contact Me
+            </a>
+            <a href="#projects" className="btn btn-outline">
+              View Projects
+            </a>
+          </div>
+        </motion.div>
         <motion.div
           className="flex-1"
           initial={{ opacity: 0, x: 20 }}
