@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Github as GitHub, Linkedin, Mail, Download } from "lucide-react";
+import { ChevronDown, Github, Linkedin, Mail, Download } from "lucide-react";
 
 export function HeroSection() {
   const handleDownloadCV = () => {
@@ -60,11 +60,7 @@ export function HeroSection() {
               className="retro-box w-12 h-12 flex items-center justify-center hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
               aria-label="GitHub"
             >
-              <GitHub
-                size={24}
-                strokeWidth={2}
-                className="text-retro-black-900"
-              />
+              <Github size={20} className="text-retro-black-900" />
             </a>
             <a
               href="https://www.linkedin.com/in/ridha-fahmi-junaidi/"
