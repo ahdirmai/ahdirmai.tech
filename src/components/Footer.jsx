@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link to="/" className="flex items-center mb-6">
-              <div className="retro-box w-10 h-10 flex items-center justify-center bg-retro-white-50 mr-3">
+              <div className="retro-box h-10 flex items-center justify-center bg-retro-white-50 mr-3">
                 <img src="/logo.svg" alt="Logo" className="w-6 h-6" />
               </div>
               <span className="font-roboto font-black text-xl">
