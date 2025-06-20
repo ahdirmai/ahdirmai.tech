@@ -52,7 +52,7 @@ export function HeroSection() {
             </a>
           </div>
         </motion.div>
-<motion.div
+      <motion.div
           className="flex-1 text-center lg:text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
