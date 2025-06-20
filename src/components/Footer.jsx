@@ -22,29 +22,6 @@ export function Footer() {
               Full Stack Developer passionate about creating modern web
               experiences that solve real problems.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/ahdirmai"
-                className="retro-box w-10 h-10 flex items-center justify-center bg-retro-white-50 hover:bg-retro-gray-300 hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
-                aria-label="GitHub"
-              >
-                <GithubIcon size={20} className="text-retro-black-900" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ridha-fahmi-junaidi/"
-                className="retro-box w-10 h-10 flex items-center justify-center bg-retro-white-50 hover:bg-retro-gray-300 hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} className="text-retro-black-900" />
-              </a>
-              <a
-                href="mailto:ridhofahmij225@gmail.com"
-                className="retro-box w-10 h-10 flex items-center justify-center bg-retro-white-50 hover:bg-retro-gray-300 hover:shadow-retro-lg hover:-translate-y-1 hover:translate-x-1 transition-all duration-200"
-                aria-label="Email"
-              >
-                <Mail size={20} className="text-retro-black-900" />
-              </a>
-            </div>
           </div>
 
           <div>
