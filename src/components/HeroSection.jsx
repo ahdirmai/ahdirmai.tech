@@ -1,7 +1,16 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Github as GitHub, Linkedin, Mail } from "lucide-react";
+import { ChevronDown, Github as GitHub, Linkedin, Mail, Download } from "lucide-react";
 
 export function HeroSection() {
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/cv.pdf';
+    link.download = 'Ridha_Fahmi_J_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="relative pt-20 lg:pt-24 pb-16 md:pb-24 overflow-hidden bg-retro-white-50">
       {/* Retro geometric shapes */}
@@ -28,7 +37,14 @@ export function HeroSection() {
           </div>
 
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
-            <a href="#contact" className="btn btn-primary">
+            <button 
+              onClick={handleDownloadCV}
+              className="btn btn-primary group"
+            >
+              <Download size={18} className="mr-2 group-hover:animate-bounce" />
+              Download CV
+            </button>
+            <a href="#contact" className="btn btn-secondary">
               Contact Me
             </a>
             <a href="#projects" className="btn btn-outline">
