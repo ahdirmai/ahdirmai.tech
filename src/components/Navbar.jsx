@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Settings } from 'lucide-react';
-import { getCurrentUser } from '../utils/auth';
+import { Menu, X } from 'lucide-react';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -24,18 +22,6 @@ export function Navbar() {
   
   useEffect(() => {
     setIsMenuOpen(false);
-    
-    // Check if user is admin
-    const checkAdmin = async () => {
-      try {
-        const user = await getCurrentUser();
-        setIsAdmin(!!user && user.email === import.meta.env.VITE_ADMIN_EMAIL);
-      } catch (error) {
-        setIsAdmin(false);
-      }
-    };
-    
-    checkAdmin();
   }, [location]);
   
   const navLinks = [
@@ -75,15 +61,6 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          {isAdmin && (
-            <Link
-              to="/admin"
-              className="nav-link flex items-center"
-            >
-              <Settings size={16} className="mr-1" />
-              Admin
-            </Link>
-          )}
           <a
             href="#contact"
             className="btn btn-primary ml-4"
@@ -116,16 +93,6 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            {isAdmin && (
-              <Link
-                to="/admin"
-                className="px-4 py-3 text-retro-black-900 hover:text-retro-gray-600 hover:bg-retro-gray-100 transition-colors flex items-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Settings size={16} className="mr-2" />
-                Admin Panel
-              </Link>
-            )}
             <a
               href="#contact"
               className="btn btn-primary mx-4 mt-4 justify-center"

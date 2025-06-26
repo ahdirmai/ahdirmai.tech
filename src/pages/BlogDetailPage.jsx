@@ -6,192 +6,30 @@ import { format } from 'date-fns'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
+import { getPostBySlug, getAllPosts } from '../data/blog'
 
 export function BlogDetailPage() {
   const { slug } = useParams()
   const [post, setPost] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
   const [relatedPosts, setRelatedPosts] = useState([])
 
   useEffect(() => {
-    fetchPost()
+    const foundPost = getPostBySlug(slug)
+    setPost(foundPost)
+    
+    if (foundPost) {
+      document.title = `${foundPost.title} | Ridha Fahmi J Blog`
+      
+      // Get related posts (same category, excluding current post)
+      const allPosts = getAllPosts(true)
+      const related = allPosts
+        .filter(p => p.id !== foundPost.id && p.category === foundPost.category)
+        .slice(0, 2)
+      setRelatedPosts(related)
+    }
+    
     window.scrollTo(0, 0)
   }, [slug])
-
-  const fetchPost = async () => {
-    try {
-      // Mock data for now - replace with actual API call
-      const mockPost = {
-        id: '1',
-        title: 'Building Modern Web Applications with React and TypeScript',
-        slug: 'building-modern-web-apps-react-typescript',
-        excerpt: 'Learn how to create scalable and maintainable web applications using React and TypeScript with best practices and modern tooling.',
-        content: `# Building Modern Web Applications with React and TypeScript
-
-In today's rapidly evolving web development landscape, creating scalable and maintainable applications is more important than ever. React and TypeScript have emerged as a powerful combination that enables developers to build robust, type-safe applications with excellent developer experience.
-
-## Why React and TypeScript?
-
-React has revolutionized how we think about building user interfaces, introducing concepts like component-based architecture and declarative programming. TypeScript adds static typing to JavaScript, catching errors at compile time and providing better tooling support.
-
-### Benefits of Using TypeScript with React
-
-1. **Type Safety**: Catch errors before they reach production
-2. **Better IDE Support**: Enhanced autocomplete and refactoring
-3. **Self-Documenting Code**: Types serve as documentation
-4. **Easier Refactoring**: Confident code changes with type checking
-
-## Setting Up Your Development Environment
-
-\`\`\`bash
-# Create a new React app with TypeScript
-npx create-react-app my-app --template typescript
-
-# Or with Vite (recommended)
-npm create vite@latest my-app -- --template react-ts
-\`\`\`
-
-## Best Practices
-
-### 1. Component Structure
-
-Always define clear interfaces for your component props:
-
-\`\`\`typescript
-interface ButtonProps {
-  children: React.ReactNode;
-  onClick: () => void;
-  variant?: 'primary' | 'secondary';
-  disabled?: boolean;
-}
-
-const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  onClick, 
-  variant = 'primary',
-  disabled = false 
-}) => {
-  return (
-    <button 
-      className={\`btn btn-\${variant}\`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {children}
-    </button>
-  );
-};
-\`\`\`
-
-### 2. State Management
-
-Use proper typing for your state:
-
-\`\`\`typescript
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
-
-const [user, setUser] = useState<User | null>(null);
-const [loading, setLoading] = useState<boolean>(false);
-\`\`\`
-
-## Advanced Patterns
-
-### Custom Hooks
-
-Create reusable logic with custom hooks:
-
-\`\`\`typescript
-function useApi<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch(url)
-      .then(response => response.json())
-      .then(setData)
-      .catch(err => setError(err.message))
-      .finally(() => setLoading(false));
-  }, [url]);
-
-  return { data, loading, error };
-}
-\`\`\`
-
-## Conclusion
-
-React and TypeScript together provide a powerful foundation for building modern web applications. The combination offers type safety, better developer experience, and more maintainable code. Start small, gradually adopt TypeScript features, and you'll see the benefits in your development workflow.
-
-Happy coding! 🚀`,
-        coverImage: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        published: true,
-        featured: true,
-        views: 1250,
-        readTime: 8,
-        tags: ['React', 'TypeScript', 'Web Development'],
-        category: 'TECH',
-        createdAt: new Date('2024-01-15'),
-        publishedAt: new Date('2024-01-15'),
-        author: {
-          name: 'Ridha Fahmi J',
-          email: 'ridhofahmij225@gmail.com',
-          avatar: null
-        },
-        comments: [
-          {
-            id: '1',
-            content: 'Great article! Very helpful for understanding TypeScript with React.',
-            createdAt: new Date('2024-01-16'),
-            author: {
-              name: 'John Doe',
-              avatar: null
-            }
-          },
-          {
-            id: '2',
-            content: 'Thanks for the practical examples. The custom hooks section was particularly useful.',
-            createdAt: new Date('2024-01-17'),
-            author: {
-              name: 'Jane Smith',
-              avatar: null
-            }
-          }
-        ]
-      }
-
-      // Mock related posts
-      const mockRelatedPosts = [
-        {
-          id: '2',
-          title: 'The Future of Web Development: Trends to Watch in 2024',
-          slug: 'future-web-development-trends-2024',
-          coverImage: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=400'
-        },
-        {
-          id: '3',
-          title: 'Design Systems: Creating Consistent User Experiences',
-          slug: 'design-systems-consistent-user-experiences',
-          coverImage: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=400'
-        }
-      ]
-
-      setPost(mockPost)
-      setRelatedPosts(mockRelatedPosts)
-      
-      if (mockPost) {
-        document.title = `${mockPost.title} | Ridha Fahmi J Blog`
-      }
-      
-      setIsLoading(false)
-    } catch (error) {
-      console.error('Error fetching post:', error)
-      setIsLoading(false)
-    }
-  }
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -209,14 +47,6 @@ Happy coding! 🚀`,
       navigator.clipboard.writeText(window.location.href)
       alert('Link copied to clipboard!')
     }
-  }
-
-  if (isLoading) {
-    return (
-      <div className="pt-28 pb-20 min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-retro-black-900"></div>
-      </div>
-    )
   }
 
   if (!post) {
@@ -299,7 +129,7 @@ Happy coding! 🚀`,
               </div>
               <button
                 onClick={handleShare}
-                className="retro-box px-4 py-2 bg-retro-gray-200 hover:bg-retro-gray-300 transition-colors"
+                className="retro-box px-4 py-2 bg-retro-gray-200 hover:bg-retro-gray-300 transition-colors flex items-center"
               >
                 <Share2 size={16} className="mr-2" />
                 Share
@@ -341,35 +171,37 @@ Happy coding! 🚀`,
             </div>
 
             {/* Comments Section */}
-            <div className="border-t-2 border-retro-gray-200 pt-12">
-              <h3 className="text-2xl font-bold mb-8 text-retro-black-900 flex items-center">
-                <MessageCircle size={24} className="mr-2" />
-                Comments ({post.comments.length})
-              </h3>
+            {post.comments && post.comments.length > 0 && (
+              <div className="border-t-2 border-retro-gray-200 pt-12">
+                <h3 className="text-2xl font-bold mb-8 text-retro-black-900 flex items-center">
+                  <MessageCircle size={24} className="mr-2" />
+                  Comments ({post.comments.length})
+                </h3>
 
-              <div className="space-y-6">
-                {post.comments.map((comment) => (
-                  <div key={comment.id} className="card p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="retro-box w-12 h-12 flex items-center justify-center bg-retro-gray-200 flex-shrink-0">
-                        <User size={20} className="text-retro-black-900" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <span className="font-bold text-retro-black-900">
-                            {comment.author.name}
-                          </span>
-                          <span className="text-sm text-retro-gray-600">
-                            {format(new Date(comment.createdAt), 'MMM dd, yyyy')}
-                          </span>
+                <div className="space-y-6">
+                  {post.comments.map((comment) => (
+                    <div key={comment.id} className="card p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="retro-box w-12 h-12 flex items-center justify-center bg-retro-gray-200 flex-shrink-0">
+                          <User size={20} className="text-retro-black-900" />
                         </div>
-                        <p className="text-retro-gray-700">{comment.content}</p>
+                        <div className="flex-1">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <span className="font-bold text-retro-black-900">
+                              {comment.author.name}
+                            </span>
+                            <span className="text-sm text-retro-gray-600">
+                              {format(new Date(comment.createdAt), 'MMM dd, yyyy')}
+                            </span>
+                          </div>
+                          <p className="text-retro-gray-700">{comment.content}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
