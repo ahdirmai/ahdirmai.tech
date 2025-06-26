@@ -1,387 +1,265 @@
 // Static blog data
 export const blogPosts = [
+  // ...existing posts
+  // --- Laravel Blog Posts ---
   {
-    id: '1',
-    title: 'Building Modern Web Applications with React and TypeScript',
-    slug: 'building-modern-web-apps-react-typescript',
-    excerpt: 'Learn how to create scalable and maintainable web applications using React and TypeScript with best practices and modern tooling.',
-    content: `# Building Modern Web Applications with React and TypeScript
+    id: "4",
+    title: "Panduan Instalasi Laravel: Langkah Awal Membuat Aplikasi Modern",
+    slug: "panduan-instalasi-laravel",
+    excerpt:
+      "Pelajari cara menginstal Laravel dengan mudah dan cepat, mulai dari persiapan lingkungan hingga menjalankan aplikasi pertama Anda.",
+    content: `# 🚀 Panduan Instalasi Laravel
 
-In today's rapidly evolving web development landscape, creating scalable and maintainable applications is more important than ever. React and TypeScript have emerged as a powerful combination that enables developers to build robust, type-safe applications with excellent developer experience.
+Laravel adalah framework PHP populer yang memudahkan pengembangan aplikasi web modern. Berikut langkah-langkah instalasi Laravel yang estetis dan mudah diikuti.
 
-## Why React and TypeScript?
+---
 
-React has revolutionized how we think about building user interfaces, introducing concepts like component-based architecture and declarative programming. TypeScript adds static typing to JavaScript, catching errors at compile time and providing better tooling support.
+## 1. **Persiapan Lingkungan**
 
-### Benefits of Using TypeScript with React
+Pastikan Anda sudah menginstal:
 
-1. **Type Safety**: Catch errors before they reach production
-2. **Better IDE Support**: Enhanced autocomplete and refactoring
-3. **Self-Documenting Code**: Types serve as documentation
-4. **Easier Refactoring**: Confident code changes with type checking
+- **PHP** (minimal versi 8.1)
+- **Composer** (dependency manager PHP)
+- **Database** (MySQL/PostgreSQL/SQLite)
 
-## Setting Up Your Development Environment
+---
+
+## 2. **Instalasi Laravel via Composer**
 
 \`\`\`bash
-# Create a new React app with TypeScript
-npx create-react-app my-app --template typescript
-
-# Or with Vite (recommended)
-npm create vite@latest my-app -- --template react-ts
+composer create-project laravel/laravel my-laravel-app
 \`\`\`
 
-## Best Practices
+> **Tips:** Ganti \`my-laravel-app\` dengan nama proyek Anda.
 
-### 1. Component Structure
+---
 
-Always define clear interfaces for your component props:
+## 3. **Menjalankan Server Lokal**
 
-\`\`\`typescript
-interface ButtonProps {
-  children: React.ReactNode;
-  onClick: () => void;
-  variant?: 'primary' | 'secondary';
-  disabled?: boolean;
-}
+Masuk ke folder proyek, lalu jalankan:
 
-const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  onClick, 
-  variant = 'primary',
-  disabled = false 
-}) => {
-  return (
-    <button 
-      className={\`btn btn-\${variant}\`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {children}
-    </button>
-  );
-};
+\`\`\`bash
+cd my-laravel-app
+php artisan serve
 \`\`\`
 
-### 2. State Management
+Akses aplikasi di [http://localhost:8000](http://localhost:8000)
 
-Use proper typing for your state:
+---
 
-\`\`\`typescript
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
+## 4. **Struktur Folder Laravel**
 
-const [user, setUser] = useState<User | null>(null);
-const [loading, setLoading] = useState<boolean>(false);
-\`\`\`
+- \`app/\` — Kode aplikasi (Controller, Model, dll)
+- \`routes/\` — Definisi routing aplikasi
+- \`resources/views/\` — File Blade (template)
 
-## Advanced Patterns
+---
 
-### Custom Hooks
+## 5. **Langkah Selanjutnya**
 
-Create reusable logic with custom hooks:
+- Konfigurasi database di \`.env\`
+- Jalankan migrasi: \`php artisan migrate\`
+- Mulai kembangkan fitur aplikasi Anda!
 
-\`\`\`typescript
-function useApi<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+---
 
-  useEffect(() => {
-    fetch(url)
-      .then(response => response.json())
-      .then(setData)
-      .catch(err => setError(err.message))
-      .finally(() => setLoading(false));
-  }, [url]);
-
-  return { data, loading, error };
-}
-\`\`\`
-
-## Conclusion
-
-React and TypeScript together provide a powerful foundation for building modern web applications. The combination offers type safety, better developer experience, and more maintainable code. Start small, gradually adopt TypeScript features, and you'll see the benefits in your development workflow.
-
-Happy coding! 🚀`,
-    coverImage: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1200',
+> **Selamat!** Laravel siap digunakan untuk membangun aplikasi web modern Anda. 🌟
+`,
+    coverImage:
+      "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200",
     published: true,
     featured: true,
-    views: 1250,
-    readTime: 8,
-    tags: ['React', 'TypeScript', 'Web Development'],
-    category: 'TECH',
-    createdAt: new Date('2024-01-15'),
-    publishedAt: new Date('2024-01-15'),
+    views: 320,
+    readTime: 5,
+    tags: ["Laravel", "Instalasi", "PHP"],
+    category: "TECH",
+    createdAt: new Date("2024-06-01"),
+    publishedAt: new Date("2024-06-01"),
     author: {
-      name: 'Ridha Fahmi J',
-      email: 'ridhofahmij225@gmail.com',
-      avatar: null
+      name: "Ridha Fahmi J",
+      email: "ridhofahmij225@gmail.com",
+      avatar: null,
     },
-    comments: [
-      {
-        id: '1',
-        content: 'Great article! Very helpful for understanding TypeScript with React.',
-        createdAt: new Date('2024-01-16'),
-        author: {
-          name: 'John Doe',
-          avatar: null
-        }
-      },
-      {
-        id: '2',
-        content: 'Thanks for the practical examples. The custom hooks section was particularly useful.',
-        createdAt: new Date('2024-01-17'),
-        author: {
-          name: 'Jane Smith',
-          avatar: null
-        }
-      }
-    ]
+    comments: [],
   },
   {
-    id: '2',
-    title: 'The Future of Web Development: Trends to Watch in 2024',
-    slug: 'future-web-development-trends-2024',
-    excerpt: 'Explore the latest trends and technologies shaping the future of web development, from AI integration to new frameworks.',
-    content: `# The Future of Web Development: Trends to Watch in 2024
+    id: "5",
+    title: "Laravel Routing: Membuat URL yang Elegan dan Dinamis",
+    slug: "laravel-routing-url-elegan",
+    excerpt:
+      "Pelajari konsep routing di Laravel untuk membuat URL yang rapi, dinamis, dan mudah di-maintain.",
+    content: `# 🌐 Laravel Routing: Membuat URL yang Elegan
 
-Web development is evolving at an unprecedented pace. As we move through 2024, several key trends are reshaping how we build and interact with web applications. Let's explore the most significant developments that every developer should be aware of.
+Routing adalah jantung aplikasi Laravel. Dengan routing, Anda dapat mengatur URL dan menghubungkannya ke controller atau closure.
 
-## 1. AI-Powered Development Tools
+---
 
-Artificial Intelligence is revolutionizing the development process:
+## **Dasar Routing**
 
-- **Code Generation**: Tools like GitHub Copilot and ChatGPT are helping developers write code faster
-- **Automated Testing**: AI can generate comprehensive test suites
-- **Bug Detection**: Machine learning algorithms can identify potential issues before they become problems
+Definisikan route di file \`routes/web.php\`:
 
-## 2. WebAssembly (WASM) Adoption
+\`\`\`php
+Route::get('/', function () {
+    return view('welcome');
+});
+\`\`\`
 
-WebAssembly is gaining traction for performance-critical applications:
+---
 
-- **Near-native Performance**: Run high-performance applications in the browser
-- **Language Flexibility**: Write web applications in languages like Rust, C++, and Go
-- **Gaming and Graphics**: Enable complex games and graphics applications on the web
+## **Route dengan Parameter**
 
-## 3. Edge Computing and CDNs
+\`\`\`php
+Route::get('/user/{id}', function ($id) {
+    return "User ID: " . $id;
+});
+\`\`\`
 
-The shift towards edge computing is changing how we deploy applications:
+---
 
-- **Reduced Latency**: Serve content closer to users
-- **Better Performance**: Faster load times and improved user experience
-- **Global Scale**: Easier deployment across multiple regions
+## **Route ke Controller**
 
-## 4. Progressive Web Apps (PWAs) Evolution
+\`\`\`php
+Route::get('/profile', [ProfileController::class, 'show']);
+\`\`\`
 
-PWAs continue to bridge the gap between web and native apps:
+---
 
-- **Improved Capabilities**: Better offline functionality and device integration
-- **App Store Distribution**: PWAs can now be distributed through app stores
-- **Enhanced Performance**: Better caching strategies and optimization techniques
+## **Named Route**
 
-## 5. Serverless Architecture Maturity
+\`\`\`php
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+\`\`\`
 
-Serverless computing is becoming more sophisticated:
+---
 
-- **Better Cold Start Performance**: Reduced latency for function execution
-- **Improved Developer Experience**: Better tooling and debugging capabilities
-- **Cost Optimization**: More granular pricing models
+## **Grouping & Middleware**
 
-## Conclusion
+\`\`\`php
+Route::middleware(['auth'])->group(function () {
+    Route::get('/settings', [SettingsController::class, 'index']);
+});
+\`\`\`
 
-The future of web development is exciting and full of opportunities. By staying informed about these trends and experimenting with new technologies, developers can build better, faster, and more engaging web experiences.
+---
 
-Stay curious and keep learning! 🌟`,
-    coverImage: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800',
+> **Tips:** Gunakan named route untuk navigasi yang lebih fleksibel dan maintainable.
+
+---
+
+## **Kesimpulan**
+
+Dengan routing Laravel, Anda bisa membuat aplikasi dengan URL yang bersih, SEO-friendly, dan mudah dikembangkan.  
+Selamat bereksperimen! ✨
+`,
+    coverImage:
+      "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1200",
     published: true,
     featured: false,
-    views: 890,
-    readTime: 6,
-    tags: ['Web Development', 'Trends', 'Future'],
-    category: 'TECH',
-    createdAt: new Date('2024-01-10'),
-    publishedAt: new Date('2024-01-10'),
+    views: 210,
+    readTime: 4,
+    tags: ["Laravel", "Routing", "PHP"],
+    category: "TECH",
+    createdAt: new Date("2024-06-02"),
+    publishedAt: new Date("2024-06-02"),
     author: {
-      name: 'Ridha Fahmi J',
-      email: 'ridhofahmij225@gmail.com',
-      avatar: null
+      name: "Ridha Fahmi J",
+      email: "ridhofahmij225@gmail.com",
+      avatar: null,
     },
-    comments: [
-      {
-        id: '3',
-        content: 'Interesting insights about the future of web development. The AI section was particularly enlightening.',
-        createdAt: new Date('2024-01-11'),
-        author: {
-          name: 'Alex Johnson',
-          avatar: null
-        }
-      }
-    ]
+    comments: [],
   },
   {
-    id: '3',
-    title: 'Design Systems: Creating Consistent User Experiences',
-    slug: 'design-systems-consistent-user-experiences',
-    excerpt: 'Learn how to build and maintain design systems that ensure consistency across your digital products.',
-    content: `# Design Systems: Creating Consistent User Experiences
+    id: "6",
+    title: "Eloquent ORM: Cara Mudah Mengelola Database di Laravel",
+    slug: "eloquent-orm-laravel",
+    excerpt:
+      "Kenali Eloquent ORM, fitur powerful Laravel untuk mengelola database dengan sintaks yang elegan dan mudah dipahami.",
+    content: `# 🗄️ Eloquent ORM: Mengelola Database dengan Laravel
 
-Consistency is key to creating great user experiences. Design systems provide the foundation for building cohesive, scalable, and maintainable digital products. In this article, we'll explore how to create and implement effective design systems.
+Eloquent ORM adalah fitur andalan Laravel untuk interaksi database yang efisien dan elegan.
 
-## What is a Design System?
+---
 
-A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. It includes:
+## **Apa itu Eloquent?**
 
-- **Design Tokens**: Colors, typography, spacing, and other design decisions
-- **Component Library**: Reusable UI components
-- **Guidelines**: Rules and best practices for using the system
-- **Documentation**: Clear instructions for implementation
+Eloquent adalah Object Relational Mapper (ORM) yang menghubungkan tabel database dengan model PHP.
 
-## Benefits of Design Systems
+---
 
-### 1. Consistency
-- Unified visual language across all products
-- Reduced design debt
-- Better brand recognition
+## **Membuat Model**
 
-### 2. Efficiency
-- Faster design and development cycles
-- Reduced duplication of effort
-- Easier maintenance and updates
+\`\`\`bash
+php artisan make:model Post
+\`\`\`
 
-### 3. Scalability
-- Easy to onboard new team members
-- Consistent quality across teams
-- Simplified decision-making process
+---
 
-## Building Your Design System
+## **CRUD Sederhana**
 
-### Step 1: Audit Your Current Design
-- Identify existing patterns and inconsistencies
-- Document current components and styles
-- Gather feedback from stakeholders
+### **Create**
 
-### Step 2: Define Design Tokens
-\`\`\`css
-:root {
-  /* Colors */
-  --color-primary: #007bff;
-  --color-secondary: #6c757d;
-  --color-success: #28a745;
-  
-  /* Typography */
-  --font-family-base: 'Roboto', sans-serif;
-  --font-size-base: 16px;
-  --line-height-base: 1.5;
-  
-  /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
+\`\`\`php
+$post = new Post;
+$post->title = 'Judul';
+$post->content = 'Isi konten';
+$post->save();
+\`\`\`
+
+### **Read**
+
+\`\`\`php
+$posts = Post::all();
+\`\`\`
+
+### **Update**
+
+\`\`\`php
+$post = Post::find(1);
+$post->title = 'Judul Baru';
+$post->save();
+\`\`\`
+
+### **Delete**
+
+\`\`\`php
+Post::destroy(1);
+\`\`\`
+
+---
+
+## **Relasi Antar Model**
+
+\`\`\`php
+// Post.php
+public function comments() {
+    return $this->hasMany(Comment::class);
 }
 \`\`\`
 
-### Step 3: Create Component Library
-Build reusable components with clear APIs:
+---
 
-\`\`\`jsx
-const Button = ({ 
-  variant = 'primary', 
-  size = 'medium', 
-  children, 
-  ...props 
-}) => {
-  return (
-    <button 
-      className={\`btn btn--\${variant} btn--\${size}\`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-\`\`\`
+## **Kesimpulan**
 
-### Step 4: Document Everything
-- Component usage examples
-- Do's and don'ts
-- Accessibility guidelines
-- Implementation notes
-
-## Tools for Design Systems
-
-### Design Tools
-- **Figma**: Collaborative design with component libraries
-- **Sketch**: Vector-based design with symbols
-- **Adobe XD**: Prototyping and design systems
-
-### Development Tools
-- **Storybook**: Component development and documentation
-- **Bit**: Component sharing and collaboration
-- **Chromatic**: Visual testing for components
-
-## Maintaining Your Design System
-
-### 1. Governance
-- Establish clear ownership and responsibilities
-- Create contribution guidelines
-- Regular review and update processes
-
-### 2. Adoption
-- Provide training and support
-- Create migration guides
-- Monitor usage and gather feedback
-
-### 3. Evolution
-- Regular audits and improvements
-- Stay updated with design trends
-- Adapt to new requirements and technologies
-
-## Conclusion
-
-Design systems are essential for creating consistent, efficient, and scalable digital products. By investing time in building and maintaining a robust design system, teams can focus more on solving user problems and less on reinventing design solutions.
-
-Remember, a design system is never truly finished—it's a living, breathing part of your product ecosystem that should evolve with your needs.
-
-Happy designing! 🎨`,
-    coverImage: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
+Dengan Eloquent, pengelolaan database menjadi lebih mudah, efisien, dan readable.  
+Coba gunakan Eloquent untuk setiap kebutuhan database Anda di Laravel! 🚀
+`,
+    coverImage:
+      "https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg?auto=compress&cs=tinysrgb&w=1200",
     published: true,
-    featured: true,
-    views: 675,
-    readTime: 10,
-    tags: ['Design', 'UI/UX', 'Design Systems'],
-    category: 'DESIGN',
-    createdAt: new Date('2024-01-05'),
-    publishedAt: new Date('2024-01-05'),
+    featured: false,
+    views: 180,
+    readTime: 6,
+    tags: ["Laravel", "Eloquent", "Database"],
+    category: "TECH",
+    createdAt: new Date("2024-06-03"),
+    publishedAt: new Date("2024-06-03"),
     author: {
-      name: 'Ridha Fahmi J',
-      email: 'ridhofahmij225@gmail.com',
-      avatar: null
+      name: "Ridha Fahmi J",
+      email: "ridhofahmij225@gmail.com",
+      avatar: null,
     },
-    comments: [
-      {
-        id: '4',
-        content: 'Excellent guide on design systems! The practical examples really help understand the concepts.',
-        createdAt: new Date('2024-01-06'),
-        author: {
-          name: 'Sarah Wilson',
-          avatar: null
-        }
-      },
-      {
-        id: '5',
-        content: 'This is exactly what our team needed. Going to implement these practices right away.',
-        createdAt: new Date('2024-01-07'),
-        author: {
-          name: 'Mike Chen',
-          avatar: null
-        }
-      }
-    ]
-  }
+    comments: [],
+  },
 ];
 
 // Helper functions for blog data
@@ -389,7 +267,7 @@ export const getAllPosts = (published = true) => {
   return published ? blogPosts.filter(post => post.published) : blogPosts;
 };
 
-export const getPostBySlug = (slug) => {
+export const getPostBySlug = slug => {
   return blogPosts.find(post => post.slug === slug);
 };
 
@@ -399,8 +277,8 @@ export const getFeaturedPosts = (limit = 3) => {
     .slice(0, limit);
 };
 
-export const getPostsByCategory = (category) => {
-  return blogPosts.filter(post => 
-    post.published && post.category === category.toUpperCase()
+export const getPostsByCategory = category => {
+  return blogPosts.filter(
+    post => post.published && post.category === category.toUpperCase()
   );
 };
