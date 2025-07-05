@@ -6,7 +6,7 @@ export function SkillsSection() {
     {
       category: "Web Development",
       icon: <Code className="h-6 w-6" />,
-      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Responsive Design", "TypeScript", "Next.js"]
+      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Responsive Design", "TypeScript", "Next.js",'Php', 'Laravel']
     },
     {
       category: "Cloud Platforms",
