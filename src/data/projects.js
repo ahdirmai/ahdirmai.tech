@@ -207,7 +207,7 @@ export const projects = [
     results:
       "Delivered a stable MVP with improved system efficiency and scalable architecture, ensuring alignment with user and business needs.",
     githubLink: "Private Repository",
-    liveLink: "hulutalent.id",
+    liveLink: "https://hulutalent.id",
     featured: true,
     additionalImages: [],
   },
